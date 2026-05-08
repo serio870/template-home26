@@ -1,0 +1,697 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Space+Grotesk:wght@500;700&display=swap');
+
+.lumina-home {
+  --lumina-bg: #050b16;
+  --lumina-panel: #0d1728;
+  --lumina-border: rgba(255, 255, 255, .1);
+  background: var(--lumina-bg);
+  color: #fff;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.lumina-home * {
+  box-sizing: border-box;
+}
+
+.lumina-home section,
+.lumina-home article,
+.lumina-home footer,
+.lumina-home div,
+.lumina-home h1,
+.lumina-home h2,
+.lumina-home h3,
+.lumina-home p {
+  border-style: solid;
+}
+
+.lumina-home a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.lumina-home svg {
+  display: block;
+  fill: none;
+  height: 1em;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+  width: 1em;
+}
+
+.lumina-home h1,
+.lumina-home h2,
+.lumina-home h3,
+.lumina-logo,
+.lumina-button,
+.lumina-nav-button {
+  font-family: "Space Grotesk", Inter, Arial, Helvetica, sans-serif;
+}
+
+.lumina-hero {
+  min-height: 95vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+}
+
+.lumina-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  opacity: .84;
+  transform: scale(1);
+  animation: luminaHeroImage 1.5s ease-out both;
+  z-index: -3;
+}
+
+.lumina-hero::before {
+  background:
+    radial-gradient(circle at center, rgba(5, 11, 22, 0) 0%, rgba(5, 11, 22, .34) 55%, #050b16 100%),
+    linear-gradient(90deg, #050b16 0%, rgba(5, 11, 22, .8) 42%, rgba(5, 11, 22, 0) 100%);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: -2;
+}
+
+.lumina-hero::after {
+  background: linear-gradient(0deg, #050b16 0%, rgba(5, 11, 22, 0) 40%);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.lumina-nav {
+  align-items: center;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  background: rgba(5, 11, 22, .8);
+  border-bottom: 1px solid var(--lumina-border);
+  display: flex;
+  gap: 28px;
+  justify-content: space-between;
+  min-height: 78px;
+  padding: 0 clamp(18px, 5vw, 72px);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.lumina-logo {
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  font-weight: 700;
+  gap: 11px;
+  letter-spacing: -.025em;
+  white-space: nowrap;
+}
+
+.lumina-logo b {
+  align-items: center;
+  background: var(--lumina-blue);
+  border-radius: 10px;
+  display: inline-flex;
+  height: 40px;
+  justify-content: center;
+  width: 40px;
+}
+
+.lumina-logo b svg {
+  fill: currentColor;
+  stroke: currentColor;
+  width: 22px;
+  height: 22px;
+}
+
+.lumina-menu {
+  display: flex;
+  gap: 26px;
+}
+
+.lumina-menu a {
+  color: #bac4d2;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.lumina-menu a:hover {
+  color: var(--lumina-blue);
+}
+
+.lumina-nav-button,
+.lumina-button {
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 16px;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 800;
+  gap: 10px;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0 24px;
+  text-transform: uppercase;
+  line-height: 1;
+  position: relative;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.lumina-button:hover {
+  transform: translateY(-2px);
+}
+
+.lumina-nav-button,
+.lumina-button-main {
+  background: var(--lumina-blue);
+  border-color: var(--lumina-blue);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, .32), 0 0 26px rgba(22, 119, 255, .36);
+  color: #fff;
+}
+
+.lumina-button-dark,
+.lumina-contact-toggle {
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  background: rgba(13, 23, 40, .9);
+  color: #fff;
+}
+
+.lumina-button-icon,
+.lumina-button-arrow {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  justify-content: center;
+}
+
+.lumina-button-icon {
+  height: 22px;
+  width: 22px;
+}
+
+.lumina-button-icon svg {
+  color: currentColor;
+  height: 22px;
+  margin: 0;
+  width: 22px;
+}
+
+.lumina-button-arrow svg {
+  height: 18px;
+  margin: 0;
+  transition: transform .2s ease;
+  width: 18px;
+}
+
+.lumina-button:hover .lumina-button-arrow svg {
+  transform: translateX(3px);
+}
+
+.lumina-button-main .lumina-button-icon {
+  color: #fff;
+}
+
+.lumina-contact-toggle .lumina-button-icon {
+  color: var(--lumina-blue);
+}
+
+.lumina-button-whatsapp .lumina-button-icon {
+  color: #25d366;
+}
+
+.lumina-hero-inner {
+  margin: auto;
+  max-width: 1180px;
+  padding: 120px clamp(18px, 5vw, 72px) 120px;
+  position: relative;
+  width: 100%;
+  animation: luminaHeroContent .8s ease-out both;
+}
+
+.lumina-hero h1 {
+  color: #fff;
+  font-size: clamp(42px, 7vw, 84px);
+  font-weight: 900;
+  letter-spacing: -.025em;
+  line-height: 1.1;
+  margin: 0 0 26px;
+  max-width: 900px;
+  padding: 0;
+}
+
+.lumina-hero h1 span {
+  color: var(--lumina-blue);
+  text-shadow: 0 0 10px rgba(22, 119, 255, .8), 0 0 30px rgba(22, 119, 255, .45);
+}
+
+.lumina-hero p {
+  color: #d1d5db;
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 640px;
+  padding: 0;
+}
+
+.lumina-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 36px;
+}
+
+.lumina-contact-box {
+  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px);
+  background: rgba(13, 23, 40, .92);
+  border: 1px solid rgba(22, 119, 255, .4);
+  border-radius: 18px;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, .36);
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+  max-width: 340px;
+  padding: 12px;
+  transform-origin: top left;
+  animation: luminaContactIn .18s ease-out both;
+}
+
+.lumina-contact-box[hidden] {
+  display: none;
+}
+
+.lumina-contact-box a {
+  border-radius: 12px;
+  display: grid;
+  font-size: 17px;
+  font-weight: 800;
+  gap: 4px;
+  padding: 12px;
+}
+
+.lumina-contact-box a:hover {
+  background: rgba(22, 119, 255, .12);
+}
+
+.lumina-contact-box small {
+  color: var(--lumina-blue);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.lumina-services,
+.lumina-pillars,
+.lumina-workflow,
+.lumina-footer {
+  padding-left: clamp(18px, 5vw, 72px);
+  padding-right: clamp(18px, 5vw, 72px);
+}
+
+.lumina-services {
+  background: linear-gradient(180deg, #050b16, rgba(8, 18, 36, .72), #050b16);
+  border-bottom: 1px solid var(--lumina-border);
+  border-top: 1px solid var(--lumina-border);
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  padding-bottom: 56px;
+  padding-top: 56px;
+}
+
+.lumina-service-card {
+  align-items: center;
+  background: rgba(13, 23, 40, .72);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  justify-content: center;
+  min-height: 224px;
+  padding: 22px;
+  text-align: center;
+  transition: transform .5s ease, border-color .5s ease, box-shadow .5s ease;
+}
+
+.lumina-service-card:hover {
+  border-color: var(--lumina-blue);
+  box-shadow: 0 0 50px rgba(22, 119, 255, .25);
+  transform: translateY(-8px);
+}
+
+.lumina-service-icon {
+  align-items: center;
+  background: rgba(22, 119, 255, .2);
+  border: 1px solid rgba(22, 119, 255, .2);
+  border-radius: 999px;
+  color: var(--lumina-blue);
+  display: flex;
+  font-size: 18px;
+  font-weight: 900;
+  height: 96px;
+  justify-content: center;
+  position: relative;
+  transition: transform .3s ease, color .3s ease;
+  width: 96px;
+}
+
+.lumina-service-icon::before {
+  animation: luminaPulse 3s ease-in-out infinite;
+  background: rgba(22, 119, 255, .48);
+  border-radius: 999px;
+  content: "";
+  filter: blur(28px);
+  inset: 8px;
+  opacity: .28;
+  position: absolute;
+}
+
+.lumina-service-icon svg {
+  filter: drop-shadow(0 0 16px rgba(22, 119, 255, .55));
+  height: 56px;
+  position: relative;
+  transition: transform .3s ease, color .3s ease;
+  width: 56px;
+}
+
+.lumina-service-card:hover .lumina-service-icon {
+  color: #fff;
+}
+
+.lumina-service-card:hover .lumina-service-icon svg {
+  transform: scale(1.1);
+}
+
+.lumina-service-card h2 {
+  color: #9ca3af;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.lumina-pillars {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding-bottom: 58px;
+  padding-top: 58px;
+}
+
+.lumina-pillar {
+  background: var(--lumina-panel);
+  border: 1px solid var(--lumina-border);
+  border-left: 5px solid var(--lumina-blue);
+  border-radius: 18px;
+  padding: 40px;
+  transition: transform .25s ease, border-color .25s ease;
+}
+
+.lumina-pillar:hover {
+  transform: translateY(-8px);
+}
+
+.lumina-pillar-icon {
+  color: var(--lumina-blue);
+  filter: drop-shadow(0 0 14px rgba(22, 119, 255, .45));
+  font-size: 42px;
+  margin-bottom: 22px;
+}
+
+.lumina-pillar h2,
+.lumina-workflow h2,
+.lumina-footer h2 {
+  color: #fff;
+  font-weight: 900;
+  margin: 0;
+}
+
+.lumina-pillar h2 {
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.lumina-pillar p,
+.lumina-step p,
+.lumina-footer p {
+  color: #aeb8c7;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.lumina-workflow {
+  background: linear-gradient(180deg, #050b16, #081224);
+  border-top: 1px solid var(--lumina-border);
+  padding-bottom: 64px;
+  padding-top: 64px;
+  text-align: center;
+}
+
+.lumina-workflow > h2 {
+  font-size: 40px;
+  margin-bottom: 34px;
+}
+
+.lumina-step-grid {
+  align-items: stretch;
+  display: grid;
+  gap: 22px;
+  grid-template-columns: 1fr 1fr 1.35fr 1fr;
+  margin: 0 auto;
+  max-width: 1180px;
+  text-align: left;
+}
+
+.lumina-step {
+  background: var(--lumina-panel);
+  border: 1px solid rgba(39, 71, 110, .9);
+  border-radius: 18px;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, .16);
+  min-height: 210px;
+  padding: 28px;
+  position: relative;
+}
+
+.lumina-step::after {
+  background: linear-gradient(90deg, rgba(22,119,255,.75), rgba(22,119,255,0));
+  content: "";
+  height: 1px;
+  left: 100%;
+  position: absolute;
+  top: 42px;
+  width: 22px;
+}
+
+.lumina-step-grid > .lumina-step:last-child::after,
+.lumina-step-split .lumina-step::after {
+  display: none;
+}
+
+.lumina-step-split {
+  display: grid;
+  gap: 16px;
+}
+
+.lumina-step-small {
+  border-color: rgba(22, 119, 255, .4);
+  min-height: 0;
+  padding: 22px;
+}
+
+.lumina-step-grid > .lumina-step:last-child {
+  border-color: rgba(22, 119, 255, .55);
+  box-shadow: 0 0 42px rgba(22, 119, 255, .12);
+}
+
+.lumina-step-top {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.lumina-step-top svg {
+  color: var(--lumina-blue);
+  font-size: 25px;
+}
+
+.lumina-step strong {
+  align-items: center;
+  background: var(--lumina-blue);
+  border-radius: 999px;
+  display: flex;
+  font-size: 12px;
+  height: 40px;
+  justify-content: center;
+  letter-spacing: .04em;
+  width: 40px;
+}
+
+.lumina-step h3 {
+  color: #fff;
+  font-size: 21px;
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+.lumina-step p {
+  font-size: 14px;
+}
+
+.lumina-footer {
+  align-items: center;
+  border-top: 1px solid var(--lumina-border);
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 1fr auto;
+  padding-bottom: 60px;
+  padding-top: 60px;
+}
+
+.lumina-footer h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.lumina-footer-phones {
+  display: grid;
+  gap: 12px;
+  min-width: 260px;
+}
+
+.lumina-footer-phones a {
+  background: var(--lumina-panel);
+  border: 1px solid var(--lumina-border);
+  border-radius: 14px;
+  font-weight: 900;
+  padding: 16px 18px;
+}
+
+@media (max-width: 980px) {
+  .lumina-menu {
+    display: none;
+  }
+
+  .lumina-services {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lumina-pillars,
+  .lumina-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .lumina-step-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lumina-step::after {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .lumina-nav {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 14px;
+    padding-top: 14px;
+    position: relative;
+  }
+
+  .lumina-nav-button,
+  .lumina-button {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .lumina-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .lumina-hero-inner {
+    padding-top: 54px;
+  }
+
+  .lumina-services {
+    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lumina-service-card {
+    border-radius: 18px;
+    min-height: 160px;
+    padding: 18px 12px;
+  }
+
+  .lumina-service-icon {
+    height: 64px;
+    width: 64px;
+  }
+
+  .lumina-service-icon svg {
+    height: 36px;
+    width: 36px;
+  }
+}
+
+@keyframes luminaHeroImage {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes luminaHeroContent {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes luminaContactIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes luminaPulse {
+  0%, 100% {
+    opacity: .25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: .6;
+    transform: scale(1.22);
+  }
+}
